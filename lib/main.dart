@@ -1,4 +1,6 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:health/auth_controller.dart';
 import 'package:health/pages/home_page.dart';
 import 'package:health/utilis/routes.dart';
 
@@ -6,7 +8,9 @@ import 'pages/signin_page.dart';
 import 'pages/login_page.dart';
 import 'package:get/get.dart ';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp().then((value) => Get.put(AuthController()));
   runApp(MyApp());
 }
 

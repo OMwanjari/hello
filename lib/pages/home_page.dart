@@ -20,14 +20,6 @@ class _HomePageState extends State<HomePage> {
         child: Form(
           key: _formkey,
           child: Column(children: [
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-              child: Image.asset(
-                "img/home_image.png",
-                width: 400,
-                fit: BoxFit.cover,
-              ),
-            ),
             Text(
               "H e l l o",
               style: TextStyle(

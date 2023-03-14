@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:health/auth_controller.dart';
 import 'package:lottie/lottie.dart';
 import '../utilis/routes.dart';
 import 'login_page.dart';
@@ -17,19 +18,6 @@ class _SigninPageState extends State<SigninPage> {
   bool changeButton = false;
 
   final _formkey = GlobalKey<FormState>();
-
-  moveToHome(BuildContext context) async {
-    if (_formkey.currentState!.validate()) {
-      setState(() {
-        changeButton = true;
-      });
-      await Future.delayed(const Duration(seconds: 1));
-      await Navigator.pushNamed(context, MyRoutes.homeRoute);
-      setState(() {
-        changeButton = false;
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -144,6 +132,7 @@ class _SigninPageState extends State<SigninPage> {
                               child: SizedBox(
                                 width: 400,
                                 child: TextFormField(
+                                    controller: passwordController,
                                     obscureText: true,
                                     decoration: InputDecoration(
                                         hintText: "Enter Password",
@@ -178,6 +167,7 @@ class _SigninPageState extends State<SigninPage> {
                               child: SizedBox(
                                 width: 400,
                                 child: TextFormField(
+                                    controller: emailController,
                                     decoration: InputDecoration(
                                         hintText: "Enter Email",
                                         prefixIcon: const Icon(
@@ -214,7 +204,23 @@ class _SigninPageState extends State<SigninPage> {
                         height: 10.0,
                       ),
                       InkWell(
-                        onTap: () => moveToHome(context),
+                        onTap: () async {
+                          AuthController.instance.register(
+                              emailController.text.trim(),
+                              passwordController.text.trim());
+
+                          /*  if (_formkey.currentState!.validate()) {
+                            setState(() {
+                              changeButton = true;
+                            });
+                            await Future.delayed(const Duration(seconds: 1));
+                            await Navigator.pushNamed(
+                                context, MyRoutes.homeRoute);
+                            setState(() {
+                              changeButton = false;
+                            });
+                          }*/
+                        },
                         child: AnimatedContainer(
                           duration: const Duration(seconds: 1),
                           width: changeButton ? 60 : 180,
