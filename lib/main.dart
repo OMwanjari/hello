@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:health/auth_controller.dart';
-import 'package:health/pages/home_page.dart';
 import 'package:health/utilis/routes.dart';
 
 import 'pages/signin_page.dart';
@@ -24,7 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => LoginPage(),
         MyRoutes.loginRoute: (context) => LoginPage(),
-        MyRoutes.homeRoute: (context) => HomePage(),
+        //MyRoutes.homeRoute: (context) => HomePage(email: '',),
         MyRoutes.signinRoute: (context) => SigninPage(),
       },
     );

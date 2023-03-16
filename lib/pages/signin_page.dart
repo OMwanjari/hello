@@ -34,7 +34,7 @@ class _SigninPageState extends State<SigninPage> {
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
             child: Container(
-              height: 710,
+              height: 800,
               width: 500,
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -66,7 +66,7 @@ class _SigninPageState extends State<SigninPage> {
                     alignment: Alignment.bottomCenter,
                   ),
                   Container(
-                    height: 447,
+                    height: 537,
                     width: 500,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(60),
@@ -75,18 +75,18 @@ class _SigninPageState extends State<SigninPage> {
                     alignment: Alignment.center,
                     child: Column(children: [
                       const SizedBox(
-                        height: 20,
+                        height: 35,
                       ),
                       Text(
                         "H e l l o   $name",
                         style: const TextStyle(
-                          fontSize: 30,
+                          fontSize: 35,
                           fontWeight: FontWeight.bold,
-                          color: Colors.green,
+                          color: Colors.lightBlue,
                         ),
                       ),
                       const SizedBox(
-                        height: 10.0,
+                        height: 20.0,
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(
@@ -108,7 +108,7 @@ class _SigninPageState extends State<SigninPage> {
                                       hoverColor: const Color.fromARGB(
                                           255, 215, 245, 255),
                                       labelText: "Username",
-                                      labelStyle: const TextStyle(fontSize: 15),
+                                      labelStyle: const TextStyle(fontSize: 20),
                                       border: OutlineInputBorder(
                                           borderRadius:
                                               BorderRadius.circular(30))),
@@ -126,7 +126,7 @@ class _SigninPageState extends State<SigninPage> {
                               ),
                             ),
                             const SizedBox(
-                              height: 15,
+                              height: 25,
                             ),
                             Container(
                               child: SizedBox(
@@ -146,7 +146,7 @@ class _SigninPageState extends State<SigninPage> {
                                             255, 215, 245, 255),
                                         labelText: "Password",
                                         labelStyle:
-                                            const TextStyle(fontSize: 15),
+                                            const TextStyle(fontSize: 20),
                                         border: OutlineInputBorder(
                                             borderRadius:
                                                 BorderRadius.circular(30))),
@@ -161,7 +161,7 @@ class _SigninPageState extends State<SigninPage> {
                               ),
                             ),
                             const SizedBox(
-                              height: 15,
+                              height: 25,
                             ),
                             Container(
                               child: SizedBox(
@@ -180,18 +180,14 @@ class _SigninPageState extends State<SigninPage> {
                                             255, 215, 245, 255),
                                         labelText: "Email",
                                         labelStyle: const TextStyle(
-                                          fontSize: 15,
+                                          fontSize: 20,
                                         ),
                                         border: OutlineInputBorder(
                                             borderRadius:
                                                 BorderRadius.circular(30))),
                                     validator: (value) {
                                       if (value!.isEmpty) {
-                                        return "Phone no. cannot be empty";
-                                      } else if (value.length < 10) {
-                                        return "Phone no. must contain 10 numbers";
-                                      } else if (value.length > 10) {
-                                        return "Phone no. should not greater than 10 numbers";
+                                        return "Email cannot be empty";
                                       }
                                       return null;
                                     }),
@@ -205,38 +201,36 @@ class _SigninPageState extends State<SigninPage> {
                       ),
                       InkWell(
                         onTap: () async {
-                          AuthController.instance.register(
-                              emailController.text.trim(),
-                              passwordController.text.trim());
-
-                          /*  if (_formkey.currentState!.validate()) {
+                          if (_formkey.currentState!.validate()) {
                             setState(() {
                               changeButton = true;
                             });
-                            await Future.delayed(const Duration(seconds: 1));
-                            await Navigator.pushNamed(
-                                context, MyRoutes.homeRoute);
-                            setState(() {
+                            // await Future.delayed(const Duration(seconds: 1));
+                            AuthController.instance.register(
+                                emailController.text.trim(),
+                                passwordController.text.trim());
+                            /* setState(() {
                               changeButton = false;
-                            });
-                          }*/
+                            });*/
+                          }
                         },
                         child: AnimatedContainer(
                           duration: const Duration(seconds: 1),
                           width: changeButton ? 60 : 180,
                           height: 60,
                           alignment: Alignment.center,
+                          // ignore: sort_child_properties_last
                           child: changeButton
                               ? const Icon(
                                   Icons.done,
                                   color: Colors.white,
                                 )
                               : const Text(
-                                  "Sign in",
+                                  "Sign up",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 18,
+                                    fontSize: 23,
                                   ),
                                 ),
                           decoration: BoxDecoration(
@@ -250,9 +244,9 @@ class _SigninPageState extends State<SigninPage> {
                       ),
                       RichText(
                         text: TextSpan(
-                            text: "Have an account",
+                            text: "Have an account ?",
                             style: TextStyle(
-                              color: Colors.grey[500],
+                              color: Color.fromARGB(255, 113, 113, 113),
                               fontSize: 15,
                             ),
                             children: [
