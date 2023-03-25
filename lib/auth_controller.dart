@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:health/pages/home_page.dart';
 import 'package:health/pages/login_page.dart';
@@ -38,12 +37,12 @@ class AuthController extends GetxController {
       Get.snackbar("About User", "User message",
           backgroundColor: Colors.redAccent,
           snackPosition: SnackPosition.BOTTOM,
-          titleText: Text(
+          titleText: const Text(
             "Account creation failed",
             style: TextStyle(color: Colors.white),
           ),
           messageText:
-              Text(e.toString(), style: TextStyle(color: Colors.white)));
+              Text(e.toString(), style: const TextStyle(color: Colors.white)));
     }
   }
 
@@ -54,12 +53,12 @@ class AuthController extends GetxController {
       Get.snackbar("About Login", "Login message",
           backgroundColor: Colors.redAccent,
           snackPosition: SnackPosition.BOTTOM,
-          titleText: Text(
+          titleText: const Text(
             "Login failed",
             style: TextStyle(color: Colors.white),
           ),
           messageText:
-              Text(e.toString(), style: TextStyle(color: Colors.white)));
+              Text(e.toString(), style: const TextStyle(color: Colors.white)));
     }
   }
 
