@@ -114,9 +114,11 @@ class _LoginPageState extends State<LoginPage> {
                                       controller: emailController,
                                       decoration: InputDecoration(
                                           hintText: "Enter Email",
+                                          hintStyle: TextStyle(fontSize: 20),
                                           prefixIcon: const Icon(
                                             Icons.email,
                                             color: Colors.green,
+                                            size: 20,
                                           ),
                                           filled: true,
                                           fillColor: Colors.white,
@@ -147,9 +149,11 @@ class _LoginPageState extends State<LoginPage> {
                                       obscureText: true,
                                       decoration: InputDecoration(
                                           hintText: "Enter Password",
+                                          hintStyle: TextStyle(fontSize: 20),
                                           prefixIcon: const Icon(
                                             Icons.password,
                                             color: Colors.green,
+                                            size: 20,
                                           ),
                                           filled: true,
                                           fillColor: Colors.white,

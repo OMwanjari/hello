@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:health/pages/home_page.dart';
+import 'package:health/pages/first_page.dart';
 import 'package:health/pages/login_page.dart';
 
 class AuthController extends GetxController {
@@ -25,7 +25,7 @@ class AuthController extends GetxController {
       print("login page");
       Get.offAll(() => LoginPage());
     } else {
-      Get.offAll(() => HomePage(email: user.email!));
+      Get.offAll(() => First());
     }
   }
 

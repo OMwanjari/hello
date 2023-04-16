@@ -1,78 +1,215 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:health/auth_controller.dart';
+import 'package:health/pages/Book_page.dart';
 
 class HomePage extends StatelessWidget {
-  String email;
-  HomePage({Key? key, required this.email}) : super(key: key);
+  String name = "Dr. Ragini sharma", city = "Nagpur";
 
   final _formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.white,
-      child: SingleChildScrollView(
-        child: Form(
-          key: _formkey,
-          child: Column(children: [
-            const SizedBox(
-              height: 300,
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: const Text(
+          'Doctor Details',
+          style: TextStyle(color: Colors.black, fontSize: 35),
+        ),
+        elevation: 0,
+        leading: IconButton(
+            onPressed: () {}, icon: Image.asset("assets/images/logo.png")),
+      ),
+      body: Center(
+        child: Column(children: [
+          SizedBox(
+            height: 30,
+          ),
+          Container(
+            width: 300,
+            height: 300,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(60),
+              color: Colors.deepPurple[100],
             ),
-            const Text(
-              "H e l l o",
-              style: TextStyle(
-                fontSize: 50,
-                fontWeight: FontWeight.bold,
-                color: Colors.lightBlue,
-              ),
+            alignment: Alignment.center,
+            child: const CircleAvatar(
+              radius: 100,
+              backgroundImage: AssetImage("assets/images/doc4.png"),
             ),
-            Text(
-              "Health Education and Lifestyle Optimization",
-              style: TextStyle(
-                fontSize: 10,
-                color: Colors.grey[500],
-              ),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Text(
+            "$name",
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
             ),
-            const SizedBox(
-              height: 100.0,
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          const Text(
+            "MBBS( Medical College,Nagpur)\nDentist \nlocation - Near YCCE Collage Nagpur",
+            style: TextStyle(
+              fontSize: 20,
+              color: Color.fromARGB(255, 101, 101, 101),
             ),
-            RichText(
-                text: TextSpan(
-              text:
-                  "welcome bro $email \n\nText nahi aara\nmujhe Call nahi aara",
-              style: const TextStyle(
-                fontSize: 25,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            )),
-            const SizedBox(
-              height: 100,
+          ),
+          const SizedBox(
+            height: 40,
+          ),
+          const Text(
+            "Shalinitai Meghe Hospital",
+            style: TextStyle(
+              fontSize: 25,
+              //fontWeight: FontWeight.bold,
+              color: Colors.black,
             ),
-            InkWell(
-              onTap: () {
-                AuthController.instance.logOut();
-              },
-              child: Container(
-                height: 60,
-                width: 180,
-                alignment: Alignment.center,
-                // ignore: sort_child_properties_last
-                child: const Text(
-                  "Sign out",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 150,
+                  height: 150,
+                  decoration: BoxDecoration(
+                    color: Colors.deepPurple[300],
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Column(
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      const Text(
+                        "Paitients",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 25),
+                      ),
+                      const Text(
+                        "369",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 25),
+                      )
+                    ],
                   ),
                 ),
-                decoration: BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: BorderRadius.circular(30)),
-              ),
+                const SizedBox(
+                  width: 25,
+                ),
+                Container(
+                  width: 150,
+                  height: 150,
+                  decoration: BoxDecoration(
+                    color: Colors.deepPurple[300],
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Column(
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      const Text(
+                        "Experience",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 25),
+                      ),
+                      const Text(
+                        "7 Years",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 25),
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  width: 25,
+                ),
+                Container(
+                  width: 150,
+                  height: 150,
+                  decoration: BoxDecoration(
+                    color: Colors.deepPurple[300],
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  alignment: Alignment.center,
+                  child: Column(
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      const Text(
+                        "Rating",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 25),
+                      ),
+                      const Text(
+                        "4.9",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 25),
+                      )
+                    ],
+                  ),
+                )
+              ],
             ),
-          ]),
-        ),
+          ),
+          const SizedBox(
+            height: 100,
+          ),
+          SizedBox(
+            width: 450,
+            height: 70,
+            child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  shape: RoundedRectangleBorder(
+                      //to set border radius to button
+                      borderRadius: BorderRadius.circular(30)),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Book(
+                              doc_name: name,
+                              city: city,
+                            )),
+                  );
+                },
+                child: const Text(
+                  "Book Appointment",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 25),
+                )),
+          ),
+        ]),
       ),
     );
   }

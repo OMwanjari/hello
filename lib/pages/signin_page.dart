@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:health/auth_controller.dart';
 import 'package:lottie/lottie.dart';
-import '../utilis/routes.dart';
 import 'login_page.dart';
 
 class SigninPage extends StatefulWidget {
@@ -99,9 +98,11 @@ class _SigninPageState extends State<SigninPage> {
                                 child: TextFormField(
                                   decoration: InputDecoration(
                                       hintText: "Enter Username",
+                                      hintStyle: TextStyle(fontSize: 20),
                                       prefixIcon: const Icon(
                                         Icons.account_circle,
                                         color: Colors.green,
+                                        size: 20,
                                       ),
                                       filled: true,
                                       fillColor: Colors.white,
@@ -136,9 +137,11 @@ class _SigninPageState extends State<SigninPage> {
                                     obscureText: true,
                                     decoration: InputDecoration(
                                         hintText: "Enter Password",
+                                        hintStyle: TextStyle(fontSize: 20),
                                         prefixIcon: const Icon(
                                           Icons.password,
                                           color: Colors.green,
+                                          size: 20,
                                         ),
                                         filled: true,
                                         fillColor: Colors.white,
@@ -170,9 +173,11 @@ class _SigninPageState extends State<SigninPage> {
                                     controller: emailController,
                                     decoration: InputDecoration(
                                         hintText: "Enter Email",
+                                        hintStyle: TextStyle(fontSize: 20),
                                         prefixIcon: const Icon(
                                           Icons.email,
                                           color: Colors.green,
+                                          size: 20,
                                         ),
                                         filled: true,
                                         fillColor: Colors.white,
